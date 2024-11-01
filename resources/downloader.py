@@ -1,6 +1,6 @@
 import yt_dlp as ytdlp
 
-def ytdlp_download_audio(url, output_path: str):
+def download_audio(url, output_path: str):
     opts = {
         'format': 'bestaudio/best',
         'extractaudio': True,      # Only keep the audio
