@@ -1,9 +1,5 @@
 from faster_whisper import WhisperModel
 from datetime import timedelta
-import os
-
-#config
-task = "transcribe" # tasks: translate, transcribe
 
 def format_time(seconds: int):
     minutes, seconds = divmod(seconds, 60)
@@ -18,7 +14,7 @@ def transcribe_video(input_file: str):
     model = WhisperModel(model_size, device="cpu", cpu_threads=12, compute_type="int8")
 
     # Remove task="translate" if you want the original language
-    segments, info = model.transcribe(input_file, beam_size=5, task=task, vad_filter=True)
+    segments, info = model.transcribe(input_file, beam_size=5, task="transcribe", vad_filter=True)
 
     srt_string = ""
     
